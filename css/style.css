@@ -1,178 +1,124 @@
-/* Reset + Global */
+/* Global settings */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f7fa;
+  background-color: #f4f4f9;
   color: #333;
-  font-size: 16px;
   line-height: 1.6;
+  font-size: 16px;
 }
 
-/* Banner Header */
 header {
   text-align: center;
-  background-color: white;
+  background-color: #ffffff;
   padding-bottom: 20px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.banner-img {
+.banniere {
   width: 100%;
+  height: auto;
   max-height: 333px;
   object-fit: cover;
-  border-bottom: 2px solid #eee;
 }
 
-.header-titles {
-  padding-top: 20px;
-}
-
-.header-titles h1 {
-  font-size: 2.4em;
+header h1 {
+  font-size: 2em;
   color: #2a2d3e;
-  font-weight: 700;
+  margin-top: 10px;
 }
 
-.header-titles p {
-  font-size: 1.2em;
-  color: #666;
+.certification {
+  font-size: 1.1em;
+  color: #555;
 }
 
 /* Navigation */
 nav {
   background-color: #2a2d3e;
-  padding: 15px 0;
   position: sticky;
   top: 0;
-  z-index: 999;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 1000;
 }
 
-nav ul {
+.nav-container {
   display: flex;
-  justify-content: center;
-  list-style: none;
-  gap: 30px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-nav a {
+.logo {
+  color: white;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links li a {
   color: white;
   text-decoration: none;
   font-size: 1.1em;
-  font-weight: 500;
-  position: relative;
-  transition: color 0.3s ease;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
-nav a:hover {
-  color: #4caf50;
+.nav-links li a:hover {
+  background-color: #4caf50;
 }
 
-/* Projets en cours link animation */
-nav ul li a#projets {
-  animation: pulse 1.5s ease-in-out infinite;
+.hamburger {
+  display: none;
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 
-nav ul li a#projets::after {
-  content: ' 🚧 En construction';
-  position: absolute;
-  right: -140px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 0.75em;
-  font-weight: bold;
-  color: #f44336;
-  opacity: 0;
-  animation: slideIn 2s ease-out 1s forwards, blink 1.5s ease-in-out infinite;
-}
-
-/* Animations */
-@keyframes pulse {
-  0%, 100% { color: white; }
-  50% { color: #4caf50; }
-}
-
-@keyframes slideIn {
-  0% { right: -180px; opacity: 0; }
-  100% { right: -20px; opacity: 1; }
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-/* Content Sections */
-.content {
-  padding: 40px 20px;
-}
-
-.description {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.description p {
-  font-size: 1.2em;
-  max-width: 800px;
-  margin: 0 auto;
-  color: #555;
-}
-
-.projects {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  max-width: 900px;
-  margin: 0 auto;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.projects h2 {
-  text-align: center;
-  font-size: 1.8em;
-  margin-bottom: 20px;
-}
-
-.projects ul {
-  list-style-type: disc;
-  margin: 0 auto 20px;
-  padding-left: 40px;
-  color: #333;
-}
-
-.projects-animation {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.loading {
-  font-size: 1.3em;
-  color: #f39c12;
-  animation: blink 1.5s infinite;
-}
-
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
-  nav ul {
+  .nav-links {
+    display: none;
     flex-direction: column;
-    gap: 10px;
+    background-color: #2a2d3e;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    padding: 10px 0;
   }
 
-  .projects, .description {
-    padding: 20px;
+  .nav-links.nav-active {
+    display: flex;
   }
 
-  .header-titles h1 {
-    font-size: 1.6em;
+  .hamburger {
+    display: block;
   }
+}
 
-  .banner-img {
-    height: auto;
-  }
+main {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #2a2d3e;
+  color: white;
 }
