@@ -1,4 +1,4 @@
-/* Base */
+/* Base : Remise à zéro des marges et padding pour éviter les conflits entre les navigateurs */
 * {
   margin: 0;
   padding: 0;
@@ -6,122 +6,90 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Styles globaux du body */
 body {
-  background-color: #f4f4f9;
-  color: #333;
-  line-height: 1.6;
-  font-size: 16px;
-  display: flex;
-  justify-content: center;
+  background-color: #f4f4f9; /* Arrière-plan de la page */
+  color: #333;               /* Couleur du texte */
+  line-height: 1.6;          /* Espacement entre les lignes */
+  font-size: 16px;           /* Taille de la police */
+  display: flex;             /* Utilisation de flexbox pour un design centré */
+  justify-content: center;   /* Centrage horizontal */
+  flex-direction: column;    /* Alignement vertical */
+  align-items: center;       /* Alignement centré */
+  min-height: 100vh;         /* La page prend toute la hauteur de l'écran */
 }
 
-/* Central container */
+/* Conteneur principal qui centralise tout le contenu */
 .container {
-  max-width: 900px;
-  width: 100%;
-  padding: 20px;
+  max-width: 900px;          /* Largeur maximale du contenu */
+  width: 100%;               /* Largeur 100% pour s'ajuster au parent */
+  padding: 20px;             /* Espacement autour du contenu */
+  text-align: center;        /* Texte centré */
 }
 
-/* Header */
+/* Header : Bannière et titre */
 header {
-  text-align: center;
   margin-bottom: 20px;
 }
 
-.banner {
-  width: 100%;
-  height: auto;
-  max-height: 333px;
-  object-fit: cover;
-  border-radius: 10px;
+/* Styles pour la bannière */
+.banniere {
+  width: 100%;              /* Prend toute la largeur de son conteneur */
+  height: auto;             /* Hauteur auto pour maintenir les proportions */
+  object-fit: cover;        /* L'image couvre l'espace sans déformer */
+  border-radius: 10px;      /* Bords arrondis pour l'image */
 }
 
-h1 {
-  font-size: 2.5em;
-  margin-top: 15px;
-}
-
-header p {
-  font-size: 1.1em;
-  color: #555;
-}
-
-/* Nav */
+/* Navigation : Style du menu */
 nav {
-  background-color: #2a2d3e;
-  border-radius: 8px;
-  margin: 20px 0;
+  background-color: #2a2d3e; /* Fond sombre pour la navigation */
+  border-radius: 8px;        /* Coins arrondis pour la navigation */
+  margin: 20px 0;            /* Espacement entre les sections */
 }
 
 nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 10px;
+  list-style: none;          /* Retirer les puces de la liste */
+  display: flex;             /* Disposition des éléments de la liste en ligne */
+  justify-content: center;   /* Centrage des éléments */
+  gap: 20px;                 /* Espacement entre les éléments */
+  padding: 10px;             /* Padding pour l'alignement du texte */
 }
 
 nav a {
-  color: white;
-  text-decoration: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  background-color: #4caf50;
-  transition: background-color 0.3s ease;
+  color: white;              /* Couleur du texte des liens */
+  text-decoration: none;     /* Supprime le soulignement des liens */
+  padding: 10px 15px;        /* Espacement autour du texte des liens */
+  border-radius: 5px;        /* Bords arrondis pour les liens */
+  background-color: #4caf50; /* Couleur de fond verte */
+  transition: background-color 0.3s ease; /* Transition pour un effet au survol */
 }
 
 nav a:hover {
-  background-color: #388e3c;
+  background-color: #388e3c; /* Changement de couleur au survol */
 }
 
-/* Content */
-.content {
+/* Section principale pour décrire le contenu */
+main {
   padding: 20px;
 }
 
-.description p {
-  font-size: 1.2em;
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-/* Projects */
-.projects {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.projects h2 {
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-.projects ul {
-  list-style: disc;
-  padding-left: 40px;
-  font-size: 1.1em;
-}
-
-/* Responsive */
+/* Responsive : Adaptation pour les écrans plus petits */
 @media screen and (max-width: 600px) {
   h1 {
-    font-size: 1.8em;
+    font-size: 1.8em;          /* Taille du titre plus petite */
   }
 
   .description p {
-    font-size: 1em;
+    font-size: 1em;            /* Taille du texte réduite sur mobile */
   }
 
   nav ul {
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: column;    /* Empilement des liens dans la navigation */
+    gap: 10px;                 /* Espacement réduit entre les liens */
   }
 
   nav a {
-    width: 100%;
-    text-align: center;
+    width: 100%;               /* Les liens prennent toute la largeur */
+    text-align: center;        /* Centrer le texte des liens */
   }
 }
