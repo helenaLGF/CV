@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #2c3e50;
+}
+
+.qa-avatar {
+    width: 100px;
+    height: 100px;
+    background-color: #2ecc71;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+    background-image: url('qa_character.png'); /* Remplacez par l'image de votre personnage QA */
+    background-size: cover;
+    background-position: center;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    list-style-type: none;
+    padding: 0;
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+nav a:hover {
+    color: #2980b9;
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.links {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.links a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.links a:hover {
+    background-color: #2980b9;
+}
+
+.projects {
+    margin-top: 30px;
+}
+
+.projects h2 {
+    color: #2c3e50;
+}
+
+.projects p {
+    font-style: italic;
+    color: #7f8c8d;
+}
