@@ -159,26 +159,14 @@ nav a:hover {
     }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .content {
-        padding: 20px;
-    }
-
-    nav ul {
-        flex-direction: column;
-    }
-
-    .description p {
-        font-size: 1.1em;
-    }
-
-    .links {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .projects ul {
-        padding-left: 10px;
-    }
+/* Animation on the "Projets en cours" link */
+nav ul li a#projets {
+    font-weight: bold;
+    padding-right: 20px; /* espace pour l'indicateur */
 }
+
+nav ul li a#projets::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom
