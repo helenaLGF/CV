@@ -1,43 +1,71 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio QA - Helena Le Goff</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <!-- Header avec bannière -->
   <header>
-    <img src="img/banner_lead_qa_3.png" alt="Bannière QA" class="banner-img" />
-    <div class="header-titles">
-      <h1>Portfolio QA - Helena Le Goff</h1>
-      <p>Certifiée ISTQB (922200)</p>
-    </div>
+    <img src="030498f4-7b4b-4904-b98b-869d2178819e.png" alt="Bannière QA" class="banniere">
+    <h1>Portfolio QA - Helena Le Goff</h1>
+    <p class="certification">Certifiée ISTQB (922200)</p>
   </header>
 
+  <!-- Navigation -->
   <nav>
-    <ul>
-      <li><a href="#cv">CV</a></li>
-      <li><a href="#projects" id="projets">Projets en cours</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="nav-container">
+      <div class="logo">Portfolio QA</div>
+      <button class="hamburger" aria-label="Toggle navigation">
+        ☰
+      </button>
+      <ul class="nav-links">
+        <li><a href="#cv">Mon CV</a></li>
+        <li><a href="#projects" id="project-link">Projets en cours</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <main class="content">
-    <section id="cv" class="description">
-      <p>Bienvenue sur mon portfolio QA. Vous trouverez ici mes compétences, projets et expériences clés.</p>
+  <!-- Contenu principal -->
+  <main>
+    <section id="cv">
+      <h2>Mon CV</h2>
+      <!-- Contenu du CV ici -->
     </section>
 
-    <section id="projects" class="projects">
-      <h2>Projets en cours</h2>
-      <ul>
-        <li>API FastAPI + GitHub + Trello</li>
-        <li>Mini framework Java Selenium</li>
-      </ul>
-      <div class="projects-animation">
-        <p class="loading">🚧 Projets en construction... 🚧</p>
-      </div>
+    <section id="projects">
+      <h2>Projets</h2>
+      <!-- Projets à venir -->
     </section>
   </main>
+
+  <footer>
+    <p>&copy; 2025 Helena Le Goff</p>
+  </footer>
+
+  <script>
+    // Texte animé du menu
+    const projectLink = document.getElementById('project-link');
+    const navTexts = ['Projets en cours', '🚧 En construction...'];
+    let currentTextIndex = 0;
+
+    setInterval(() => {
+      currentTextIndex = (currentTextIndex + 1) % navTexts.length;
+      projectLink.textContent = navTexts[currentTextIndex];
+    }, 3000);
+
+    // Menu responsive
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('nav-active');
+    });
+  </script>
 </body>
+
 </html>
