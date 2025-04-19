@@ -8,7 +8,7 @@
 
 /* Styles globaux du body */
 body {
-  background-color: #f4f4f9; /* Arrière-plan de la page */
+  background-color: #fff; /* Arrière-plan de la page */
   color: #333;               /* Couleur du texte */
   line-height: 1.6;          /* Espacement entre les lignes */
   font-size: 16px;           /* Taille de la police */
@@ -42,7 +42,7 @@ header {
 
 /* Navigation : Style du menu */
 nav {
-  background-color: #2a2d3e; /* Fond sombre pour la navigation */
+  background-color: #343434; /* Fond sombre pour la navigation */
   border-radius: 8px;        /* Coins arrondis pour la navigation */
   margin: 20px 0;            /* Espacement entre les sections */
 }
@@ -60,12 +60,12 @@ nav a {
   text-decoration: none;     /* Supprime le soulignement des liens */
   padding: 10px 15px;        /* Espacement autour du texte des liens */
   border-radius: 5px;        /* Bords arrondis pour les liens */
-  background-color: #4caf50; /* Couleur de fond verte */
+  background-color: #007BFF; /* Couleur de fond bleue moderne */
   transition: background-color 0.3s ease; /* Transition pour un effet au survol */
 }
 
 nav a:hover {
-  background-color: #388e3c; /* Changement de couleur au survol */
+  background-color: #0056b3; /* Changement de couleur au survol */
 }
 
 /* Section principale pour décrire le contenu */
