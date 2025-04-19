@@ -1,48 +1,43 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio QA - Helena Le Goff</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio QA - Helena Le Goff</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <header>
+    <img src="img/banner_lead_qa_3.png" alt="Bannière QA" class="banner-img" />
+    <div class="header-titles">
+      <h1>Portfolio QA - Helena Le Goff</h1>
+      <p>Certifiée ISTQB (922200)</p>
+    </div>
+  </header>
 
-<header>
-    <h1>Portfolio QA - Helena Le Goff</h1>
-    <div class="qa-avatar"></div>
-    <p>Certifiée ISTQB (922200)</p>
-</header>
-
-<nav>
+  <nav>
     <ul>
-        <li><a href="#cv">CV</a></li>
-        <li><a href="#projets">Projets en cours</a></li>
+      <li><a href="#cv">CV</a></li>
+      <li><a href="#projects" id="projets">Projets en cours</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-</nav>
+  </nav>
 
-<div class="content">
-    <section class="description" id="cv">
-        <p>Bienvenue sur mon portfolio ! Actuellement, je travaille sur des projets personnels incluant Playwright, le développement et les tests d'API sur des plateformes comme Render, Replit, et Postman. Je travaille avec Java, JavaScript, Python, et je suis en pleine montée en compétences sur GitHub Actions CI/CD et Cypress.</p>
+  <main class="content">
+    <section id="cv" class="description">
+      <p>Bienvenue sur mon portfolio QA. Vous trouverez ici mes compétences, projets et expériences clés.</p>
     </section>
 
-    <section class="links">
-        <a href="https://helenalgf.github.io/CV/" target="_blank">Téléchargez mon CV</a>
-        <a href="http://www.scr.istqb.org/" target="_blank">Vérifiez mes certifications</a>
+    <section id="projects" class="projects">
+      <h2>Projets en cours</h2>
+      <ul>
+        <li>API FastAPI + GitHub + Trello</li>
+        <li>Mini framework Java Selenium</li>
+      </ul>
+      <div class="projects-animation">
+        <p class="loading">🚧 Projets en construction... 🚧</p>
+      </div>
     </section>
-
-    <section class="projects" id="projets">
-        <h2>Mes projets en cours</h2>
-        <ul>
-            <li>Playwright</li>
-            <li>Développement et tests d'API (Render, Replit, Postman)</li>
-            <li>GitHub Actions CI/CD</li>
-            <li>Cypress</li>
-        </ul>
-        <p><strong>Les liens vers les présentations de mes projets seront publiés prochainement.</strong></p>
-    </section>
-</div>
-
-<script src="js/script.js"></script>
+  </main>
 </body>
 </html>

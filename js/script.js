@@ -1,11 +1,9 @@
-// Ce fichier est pour toute fonctionnalité JavaScript que vous souhaitez ajouter
-// Par exemple, pour un effet de défilement fluide vers les sections
-
+// Ajoute un écouteur d'événement sur chaque lien du menu pour activer le défilement fluide
 document.querySelectorAll('nav a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
+        e.preventDefault(); // Empêche l'action par défaut du lien
         document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+            behavior: 'smooth' // Défilement fluide
         });
     });
 });
