@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let index = 0;
 
   setInterval(() => {
-    index = (index + 1) % texts.length;
-    projectLink.textContent = texts[index];
-  }, 2000);
+    menuItem.innerText = labels[index];
+    index = (index + 1) % labels.length;
+  }, 1800);
 });
