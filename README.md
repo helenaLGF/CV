@@ -17,8 +17,8 @@ Ce repository contient mon CV à jour pour des opportunités dans le domaine du 
 
 ## 🔗 Pour me contacter
 
-📧 helena.le.goff@email.com  
-🔗 [LinkedIn]([https://www.linkedin.com/in/ton-profil](https://www.linkedin.com/in/helenalegoff/))
+📧 helena.legoff75@gmail.com  
+🔗 [Mon profil LinkedIn](https://www.linkedin.com/in/helenalegoff/)
 
 ---
 
