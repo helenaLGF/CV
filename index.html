@@ -5,63 +5,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio QA - Helena Le Goff</title>
+  <!-- Lien vers la feuille de style CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <div class="container">
-  <!-- Header avec bannière -->
-  <header>
+  <!-- Conteneur principal pour le site -->
+  <div class="container">
 
-  </header>
+    <!-- Header avec la bannière et informations personnelles -->
+    <header>
+      <!-- Image de la bannière, adaptable à la largeur du conteneur -->
+      <img src="img/banner_lead_qa_3.png" alt="Bannière QA" class="banniere">
+      <h1>Portfolio QA - Helena Le Goff</h1>
+      <p class="certification">Certifiée ISTQB (922200)</p>
+    </header>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-container">
-      
-    <img src="img/banner_lead_qa_3.png" alt="Bannière QA" class="banniere">
-    <h1>Portfolio QA - Helena Le Goff</h1>
-    <p class="certification">Certifiée ISTQB (922200)</p>
-      
-      <ul class="nav-links">
-        <li><a href="cv/Lead_QA_Automation.pdf">Mon CV</a></li>
-        <li><a href="#projects" id="project-link">Projets en cours</a></li>
-      </ul>
-    </div>
-  </nav>
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-container">
+        <!-- Liens de navigation principaux -->
+        <ul class="nav-links">
+          <li><a href="cv/Lead_QA_Automation.pdf" target="_blank">Mon CV</a></li>
+          <li><a href="#projects" id="project-link">Projets en cours</a></li>
+        </ul>
+      </div>
+    </nav>
 
-  <!-- Contenu principal -->
-  <main>
-  </main>
-    </br>
-<p>
-  Je travaille actuellement sur plusieurs projets personnels pour renforcer mes compétences techniques, notamment en <strong>Playwright</strong>, <strong>développement et test d'API</strong> (avec <strong>Render</strong>, <strong>Replit</strong>, <strong>Postman</strong>), ainsi que sur l’intégration continue avec <strong>GitHub Actions</strong>. J’utilise aussi plusieurs langages : <strong>Java</strong>, <strong>JavaScript</strong> et <strong>Python</strong>. Je suis également en phase de montée en compétence sur <strong>Cypress</strong> pour les tests end-to-end.
-</p>
-</br></br></br>
-  <footer>
-    <p>&copy; 2025 Helena Le Goff</p>
-  </footer>
+    <!-- Section principale pour décrire les compétences et projets -->
+    <main>
+      <section>
+        <p>
+          Je travaille actuellement sur plusieurs projets personnels pour renforcer mes compétences techniques, notamment en <strong>Playwright</strong>, <strong>développement et test d'API</strong> (avec <strong>Render</strong>, <strong>Replit</strong>, <strong>Postman</strong>), ainsi que sur l’intégration continue avec <strong>GitHub Actions</strong>. J’utilise aussi plusieurs langages : <strong>Java</strong>, <strong>JavaScript</strong> et <strong>Python</strong>. Je suis également en phase de montée en compétence sur <strong>Cypress</strong> pour les tests end-to-end.
+        </p>
+      </section>
+    </main>
 
+    <!-- Footer avec l'information de copyright -->
+    <footer>
+      <p>&copy; 2025 Helena Le Goff</p>
+    </footer>
+
+  </div>
+
+  <!-- Script JavaScript pour le texte animé dans la navigation -->
   <script>
-    // Texte animé du menu
+    // Fonction pour changer le texte du lien de projet de manière animée
     const projectLink = document.getElementById('project-link');
-    const navTexts = ['Projets en cours', '🚧 En construction...'];
+    const navTexts = ['Projets en cours', '🚧 En construction...'];  // Textes alternés
     let currentTextIndex = 0;
 
     setInterval(() => {
       currentTextIndex = (currentTextIndex + 1) % navTexts.length;
-      projectLink.textContent = navTexts[currentTextIndex];
+      projectLink.textContent = navTexts[currentTextIndex];  // Mise à jour du texte du lien
     }, 3000);
-
-    // Menu responsive
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('nav-active');
-    });
   </script>
-  </div>
 
 </body>
 
