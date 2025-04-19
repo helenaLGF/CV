@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Helena Le Goff</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<!-- Conteneur principal pour le site -->
+<div class="container">
+
+    <!-- Header avec la bannière et informations personnelles -->
+    <header>
+        <img src="img/banner_lead_qa_3.png" alt="Bannière QA" class="banniere">
+        <h1>Portfolio QA - Helena Le Goff</h1>
+        <p class="certification">Certifiée ISTQB (922200)</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="cv/Lead_QA_Automation.pdf" target="_blank">Mon CV</a></li>
+            <li><a href="#projects" id="project-link">Projets en cours</a></li>
+            <li><a href="documentation.html">Documentation</a></li>
+        </ul>
+    </nav>
+
+    <!-- Section principale pour le contenu du README -->
+    <main>
+        <section>
+            <h2>🧪 Projet `java_demo`</h2>
+            <img src="https://github.com/helenaLGF/Java_selenium/actions/workflows/ci.yml/badge.svg" alt="CI Badge">
+
+            <blockquote>
+                <p>✅ Framework de test automatisé avec <strong>Java 21</strong>, <strong>Selenium 4</strong>, <strong>Cucumber</strong>, <strong>TestNG</strong>, <strong>WebDriverManager</strong>, et <strong>Maven</strong>.</p>
+            </blockquote>
+
+            <h3>🇫🇷 Présentation</h3>
+            <p>Ce projet permet d'automatiser des scénarios de test sur Google en utilisant Selenium avec Cucumber et TestNG.</p>
+
+            <h4>✅ Fonctionnalités principales</h4>
+            <ul>
+                <li>⚙️ Selenium WebDriver (Chrome)</li>
+                <li>🥒 Cucumber (BDD)</li>
+                <li>✅ TestNG (runner)</li>
+                <li>🌐 WebDriverManager (gestion automatique des drivers)</li>
+                <li>🔎 Exemple de test : recherche Google</li>
+                <li>📦 Maven (`clean`, `verify`, `install`)</li>
+            </ul>
+
+            <h4>📁 Arborescence</h4>
+            <pre>
+src
+├── main
+│   └── java
+│       └── com.example.utils
+│           └── Driver.java
+├── test
+│   ├── java
+│   │   └── com.example
+│   │       ├── pages
+│   │       ├── stepdefs
+│   │       ├── tests
+│   │       └── utils
+│   └── resources
+│       ├── drivers
+│       └── features
+└── target
+                </pre>
+
+            <h4>▶️ Lancer les tests</h4>
+            <pre>mvn clean verify</pre>
+
+            <h4>💡 Exemple de scénario</h4>
+            <pre>
+Feature: Recherche Google
+
+  Scenario: Recherche de "Cucumber" sur Google
+    Given je suis sur la page d'accueil de Google
+    When je recherche "Cucumber"
+    When j'accepte
+    Then je vois des résultats de recherche pour "Cucumber"
+                </pre>
+
+            <h4>🧬 Nettoyage automatique</h4>
+            <p>Le dossier <code>target/</code> est automatiquement vidé grâce au plugin <code>maven-clean-plugin</code>.</p>
+
+            <h3>🇬🇧 English Version</h3>
+            <blockquote>
+                <p>✅ Automated testing framework with <strong>Java 21</strong>, <strong>Selenium 4</strong>, <strong>Cucumber</strong>, <strong>TestNG</strong>, <strong>WebDriverManager</strong>, and <strong>Maven</strong>.</p>
+            </blockquote>
+
+            <h4>📌 Features</h4>
+            <ul>
+                <li>⚙️ Selenium WebDriver (Chrome)</li>
+                <li>🥒 Cucumber (BDD)</li>
+                <li>✅ TestNG (test runner)</li>
+                <li>🌐 WebDriverManager (auto-manages driver versions)</li>
+                <li>🔎 Example test: Google search automation</li>
+                <li>📦 Maven (`clean`, `verify`, `install`)</li>
+            </ul>
+
+            <h4>📁 Project Structure</h4>
+            <pre>
+src
+├── main
+│   └── java
+│       └── com.example.utils
+│           └── Driver.java
+├── test
+│   ├── java
+│   │   └── com.example
+│   │       ├── pages
+│   │       ├── stepdefs
+│   │       ├── tests
+│   │       └── utils
+│   └── resources
+│       ├── drivers
+│       └── features
+└── target
+                </pre>
+
+            <h4>▶️ Run tests</h4>
+            <pre>mvn clean verify</pre>
+
+            <h4>💡 Sample Scenario</h4>
+            <pre>
+Feature: Google Search
+
+  Scenario: Search for "Cucumber" on Google
+    Given I am on the Google homepage
+    When I search for "Cucumber"
+    When I accept
+    Then I see search results for "Cucumber"
+                </pre>
+
+            <h4>🧬 Automatic Cleanup</h4>
+            <p>The <code>target/</code> folder is automatically cleaned using <code>maven-clean-plugin</code>.</p>
+
+            <p>🧠 Feel free to adapt this project to automate other web scenarios!</p>
+        </section>
+    </main>
+
+    <!-- Footer avec l'information de copyright -->
+    <footer>
+        <p>&copy; 2025 Helena Le Goff. Tous droits réservés.</p>
+        <p>Dernière mise à jour le 20 avril 2025.</p>
+    </footer>
+
+</div>
+
+<script>
+    const projectLink = document.getElementById('project-link');
+    const navTexts = ['Projets en cours', '🚧 En construction...'];  // Textes alternés
+    let currentTextIndex = 0;
+
+    setInterval(() => {
+        currentTextIndex = (currentTextIndex + 1) % navTexts.length;
+        projectLink.textContent = navTexts[currentTextIndex];  // Mise à jour du texte du lien
+    }, 3000);
+</script>
+
+</body>
+
+</html>
