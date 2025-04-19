@@ -11,9 +11,9 @@ Ce repository contient mon CV à jour pour des opportunités dans le domaine du 
 - 💬 Méthodologies Agile (Scrum, Kanban)
 - 👩‍🏫 Expérience en pilotage de stratégie QA, formation d’équipes et tests sur appareils réels/émulateurs
 
-## 📎 Fichier
+## 📎 Accéder à mon CV
 
-- [CV_LeadQA_2025.pdf](./CV_LeadQA_2025.pdf)
+👉 [Lead_QA_Automation.pdf](https://github.com/helenaLGF/CV/blob/main/Lead_QA_Automation.pdf)
 
 ## 🔗 Pour me contacter
 
