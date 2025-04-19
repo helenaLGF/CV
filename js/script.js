@@ -1,9 +1,10 @@
-// Ajoute un écouteur d'événement sur chaque lien du menu pour activer le défilement fluide
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault(); // Empêche l'action par défaut du lien
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth' // Défilement fluide
-        });
-    });
+document.addEventListener("DOMContentLoaded", () => {
+  const projectLink = document.getElementById("project-link");
+  const texts = ["Projets en cours", "En construction"];
+  let index = 0;
+
+  setInterval(() => {
+    index = (index + 1) % texts.length;
+    projectLink.textContent = texts[index];
+  }, 2000);
 });
