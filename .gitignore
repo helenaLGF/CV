@@ -26,3 +26,4 @@ node_modules/
 # Fichiers de couverture de code
 coverage/
 *.lcov
+/google8daf53f673c261ad.html
