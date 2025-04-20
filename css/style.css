@@ -127,6 +127,35 @@ footer {
   text-align: center;        /* Centrer le texte du footer */
 }
 
+/* Nouveau style pour l'annonce */
+.announcement {
+  background-color: #f4f4f4;
+  border-left: 5px solid #007BFF;
+  padding: 20px;
+  margin: 30px 0;
+  font-size: 1.2em;
+  color: #333;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.announcement p {
+  margin: 0;
+  padding: 10px 0;
+}
+
+.announcement span {
+  color: #007BFF;
+  font-weight: bold;
+}
+
+/* Effet au survol pour l'annonce */
+.announcement:hover {
+  background-color: #e9f2fb;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
 /* Responsive : Adaptation pour les écrans plus petits */
 @media screen and (max-width: 600px) {
   h1 {
