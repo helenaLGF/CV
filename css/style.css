@@ -51,32 +51,64 @@ header {
   border-radius: 10px;     /* Bords arrondis pour l'image */
 }
 
-/* Navigation : Style du menu */
+/* Styles du menu */
 nav {
-  background-color: #343434; /* Fond sombre pour la navigation */
-  border-radius: 8px;        /* Coins arrondis pour la navigation */
-  margin: 20px 0;            /* Espacement entre les sections */
+  background-color: #343434;
+  border-radius: 8px;
+  margin: 20px 0;
 }
 
+/* Style de la liste principale */
 nav ul {
-  list-style: none;          /* Retirer les puces de la liste */
-  display: flex;             /* Disposition des éléments de la liste en ligne */
-  justify-content: center;   /* Centrage des éléments */
-  gap: 20px;                 /* Espacement entre les éléments */
-  padding: 10px;             /* Padding pour l'alignement du texte */
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
 }
 
 nav a {
-  color: white;              /* Couleur du texte des liens */
-  text-decoration: none;     /* Supprime le soulignement des liens */
-  padding: 10px 15px;        /* Espacement autour du texte des liens */
-  border-radius: 5px;        /* Bords arrondis pour les liens */
-  background-color: #007BFF; /* Couleur de fond bleue moderne */
-  transition: background-color 0.3s ease; /* Transition pour un effet au survol */
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #007BFF;
+  transition: background-color 0.3s ease;
 }
 
 nav a:hover {
-  background-color: #0056b3; /* Changement de couleur au survol */
+  background-color: #0056b3;
+}
+
+/* Styles pour le sous-menu */
+.nav-item {
+  position: relative; /* Nécessaire pour positionner le sous-menu */
+}
+
+.sub-menu {
+  display: none; /* Cacher le sous-menu par défaut */
+  position: absolute; /* Le sous-menu s'affiche au-dessous du lien principal */
+  top: 100%; /* Le sous-menu apparaît juste sous le lien principal */
+  left: 0;
+  background-color: #343434;
+  list-style: none;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.sub-menu li {
+  padding: 10px;
+}
+
+.sub-menu li a {
+  color: white;
+  padding: 5px 10px;
+  display: block;
+}
+
+/* Affichage du sous-menu au survol */
+.nav-item:hover .sub-menu {
+  display: block;
 }
 
 /* Section principale pour décrire le contenu */
