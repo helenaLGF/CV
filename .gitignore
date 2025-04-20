@@ -26,4 +26,6 @@ node_modules/
 # Fichiers de couverture de code
 coverage/
 *.lcov
+
+# stats gg
 /google8daf53f673c261ad.html
