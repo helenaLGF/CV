@@ -1,0 +1,28 @@
+# Fichiers générés par l'IDE
+*.idea/
+.vscode/
+
+# Fichiers de log
+*.log
+
+# Fichiers temporaires
+*.tmp
+*.swp
+*.bak
+*.swo
+
+# Fichiers générés par le système d'exploitation
+Thumbs.db
+Desktop.ini
+
+# Dossiers de build
+/target/
+node_modules/
+
+# Fichiers de configuration contenant des secrets
+.env
+*.env
+
+# Fichiers de couverture de code
+coverage/
+*.lcov
