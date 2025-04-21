@@ -1,0 +1,67 @@
+
+/* =========================================
+   Responsive CSS pour mobile (max-width: 768px)
+   ========================================= */
+
+/* Cacher le menu principal en mobile, afficher le menu hamburger */
+@media screen and (max-width: 768px) {
+
+  /* On empile les éléments verticalement */
+  nav .nav-links {
+    display: none; /* Caché par défaut, sera montré quand hamburger actif */
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+  }
+
+  /* Chaque lien du menu prend toute la largeur */
+  nav .nav-links li {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+  }
+
+  nav .nav-links li:first-child {
+    border-top: none;
+  }
+
+  /* Bouton hamburger */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    padding: 10px;
+    margin-left: auto;
+  }
+
+  .hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+  }
+
+  .nav-open .nav-links {
+    display: flex !important;
+  }
+
+  /* Ajustement du texte d’annonce pour éviter les coupures ou débordements */
+  .announcement p {
+    word-break: break-word;
+    white-space: normal;
+  }
+
+  /* Centrage du texte du menu mobile */
+  nav a {
+    color: #333;
+    background: none;
+    padding: 10px;
+  }
+}

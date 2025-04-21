@@ -6,29 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentation - Helena Le Goff</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css" media="screen and (max-width: 768px)">
 </head>
 
 <body>
-<!-- Conteneur principal pour le site -->
 <div class="container read">
-
-    <!-- Header avec la bannière et informations personnelles -->
     <header>
         <img src="../img/Lead_qa_automation.png" alt="Bannière QA" class="banniere">
         <h1>Portfolio QA - Helena Le Goff</h1>
         <p class="certification">Certifiée ISTQB (922200)</p>
     </header>
 
+    <!-- Menu hamburger pour mobile -->
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+    </div>
+
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <!-- Liens de navigation principaux -->
             <ul class="nav-links">
                 <li><a href="https://helenalgf.github.io/CV/">Home</a></li>
                 <li><a href="https://helenalgf.github.io/CV/cv/Lead_QA_Automation.pdf" target="_blank">Mon CV</a></li>
                 <li class="nav-item">
                     <a href="#projects" id="project-link">Projets</a>
-                    <!-- Sous-menu -->
                     <ul class="sub-menu">
                         <li><a href="https://helenalgf.github.io/CV/pages/selenium_java_cucumber_testng_maven_projet.html">Java Selenium</a></li>
                         <li><a href="#">(#TODO) Test d'API</a></li>
@@ -37,17 +38,16 @@
                     </ul>
                 </li>
             </ul>
-
         </div>
     </nav>
 
-    <!-- Section principale pour le contenu du README -->
+    <!-- Section principale -->
     <main>
         <section>
-            <!-- Annonce mise en valeur -->
             <div class="announcement">
                 <p>À venir : une <span>vidéo démonstrative</span> montrant l'exécution multi-navigateurs, une exploration détaillée du code, des explications sur le fichier <span>POM.xml</span>, ainsi qu'une vue d'ensemble des principaux scripts du projet.</p>
             </div>
+
             <h2>🧪 Projet `java_demo`</h2>
             <blockquote>
                 <p>✅ Framework de test automatisé avec <strong>Java 21</strong>, <strong>Selenium 4</strong>, <strong>Cucumber</strong>, <strong>TestNG</strong>, <strong>WebDriverManager</strong>, et <strong>Maven</strong>.</p>
@@ -61,8 +61,8 @@
                 <li>⚙️ Selenium WebDriver (Chrome)</li>
                 <li>🥒 Cucumber (BDD)</li>
                 <li>✅ TestNG (runner)</li>
-                <li>🌐 WebDriverManager (gestion automatique des drivers)</li>
-                <li>🔎 Exemple de test : recherche Google</li>
+                <li>🌐 WebDriverManager</li>
+                <li>🔎 Test Google</li>
                 <li>📦 Maven (`clean`, `verify`, `install`)</li>
             </ul>
 
@@ -83,8 +83,7 @@ src
 │   └── resources
 │       ├── drivers
 │       └── features
-└── target
-                </pre>
+└── target</pre>
 
             <h4>▶️ Lancer les tests</h4>
             <pre>mvn clean verify</pre>
@@ -92,31 +91,26 @@ src
             <h4>💡 Exemple de scénario</h4>
             <pre>
 Feature: Recherche Google
-
-  Scenario: Recherche de "Cucumber" sur Google
+  Scenario: Recherche de "Cucumber"
     Given je suis sur la page d'accueil de Google
     When je recherche "Cucumber"
     When j'accepte
-    Then je vois des résultats de recherche pour "Cucumber"
-                </pre>
-
-            <h4>🧬 Nettoyage automatique</h4>
-            <p>Le dossier <code>target/</code> est automatiquement vidé grâce au plugin <code>maven-clean-plugin</code>.</p>
-</br></br></br>
+    Then je vois des résultats pour "Cucumber"
+</pre>
 
             <h3>🇬🇧 English Version</h3>
             <blockquote>
-                <p>✅ Automated testing framework with <strong>Java 21</strong>, <strong>Selenium 4</strong>, <strong>Cucumber</strong>, <strong>TestNG</strong>, <strong>WebDriverManager</strong>, and <strong>Maven</strong>.</p>
+                <p>✅ Automated testing framework using <strong>Java 21</strong>, <strong>Selenium 4</strong>, <strong>Cucumber</strong>, <strong>TestNG</strong>, <strong>WebDriverManager</strong>, and <strong>Maven</strong>.</p>
             </blockquote>
 
             <h4>📌 Features</h4>
             <ul>
                 <li>⚙️ Selenium WebDriver (Chrome)</li>
                 <li>🥒 Cucumber (BDD)</li>
-                <li>✅ TestNG (test runner)</li>
-                <li>🌐 WebDriverManager (auto-manages driver versions)</li>
-                <li>🔎 Example test: Google search automation</li>
-                <li>📦 Maven (`clean`, `verify`, `install`)</li>
+                <li>✅ TestNG</li>
+                <li>🌐 WebDriverManager</li>
+                <li>🔎 Google search test</li>
+                <li>📦 Maven</li>
             </ul>
 
             <h4>📁 Project Structure</h4>
@@ -136,8 +130,7 @@ src
 │   └── resources
 │       ├── drivers
 │       └── features
-└── target
-                </pre>
+└── target</pre>
 
             <h4>▶️ Run tests</h4>
             <pre>mvn clean verify</pre>
@@ -145,39 +138,36 @@ src
             <h4>💡 Sample Scenario</h4>
             <pre>
 Feature: Google Search
-
-  Scenario: Search for "Cucumber" on Google
+  Scenario: Search for "Cucumber"
     Given I am on the Google homepage
     When I search for "Cucumber"
     When I accept
-    Then I see search results for "Cucumber"
-                </pre>
-
-            <h4>🧬 Automatic Cleanup</h4>
-            <p>The <code>target/</code> folder is automatically cleaned using <code>maven-clean-plugin</code>.</p>
+    Then I see results for "Cucumber"
+</pre>
 
         </section>
     </main>
 
-    <!-- Footer avec l'information de copyright -->
     <footer>
         <p>&copy; 2025 Helena Le Goff. Tous droits réservés.</p>
         <p>Dernière mise à jour le 20 avril 2025.</p>
     </footer>
-
 </div>
 
 <script>
+    function toggleMenu() {
+        const nav = document.querySelector("nav ul");
+        nav.classList.toggle("active");
+    }
+
     const projectLink = document.getElementById('project-link');
-    const navTexts = ['Projets en cours', '🚧 En construction...'];  // Textes alternés
+    const navTexts = ['Projets en cours', '🚧 En construction...'];
     let currentTextIndex = 0;
 
     setInterval(() => {
         currentTextIndex = (currentTextIndex + 1) % navTexts.length;
-        projectLink.textContent = navTexts[currentTextIndex];  // Mise à jour du texte du lien
+        projectLink.textContent = navTexts[currentTextIndex];
     }, 3000);
 </script>
-
 </body>
-
 </html>
