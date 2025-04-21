@@ -8,60 +8,52 @@
 
 /* Styles globaux du body */
 body {
-  background-color: #fff; /* Arrière-plan de la page */
-  color: #333;            /* Couleur du texte */
-  line-height: 1.6;       /* Espacement entre les lignes */
-  font-size: 16px;        /* Taille de la police */
-  display: flex;          /* Utilisation de flexbox pour centrer le contenu principal */
-  justify-content: center;/* Centrage horizontal du contenu principal */
-  flex-direction: column; /* Alignement vertical du contenu */
-  align-items: center;    /* Centrage horizontal et vertical */
-  min-height: 100vh;      /* La page prend toute la hauteur de l'écran */
-  text-align: center;     /* Centrage du texte par défaut */
+  background-color: #fff;
+  color: #333;
+  line-height: 1.6;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
 }
 
-/* Conteneur principal qui centralise tout le contenu */
 .container {
-  max-width: 900px;       /* Largeur maximale du contenu */
-  width: 100%;            /* Largeur 100% pour s'ajuster au parent */
-  padding: 20px;          /* Espacement autour du contenu */
-  text-align: center;     /* Texte centré dans le conteneur */
+  max-width: 900px;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
 }
 
-/* Styles spécifiques pour la page contenant le README */
 .container.read {
-  max-width: 900px;       /* Largeur maximale du contenu */
-  width: 100%;            /* Largeur 100% pour s'ajuster au parent */
-  padding: 20px;          /* Espacement autour du contenu */
-  text-align: justify;    /* Texte justifié pour le contenu du README */
-  line-height: 1.8;       /* Augmenter l'espacement des lignes pour une meilleure lisibilité */
+  text-align: justify;
+  line-height: 1.8;
 }
 
-/* Header : Bannière et titre */
 header {
   margin-bottom: 20px;
-  text-align: center;     /* Assurer que le texte du header soit centré */
 }
 
-/* Styles pour la bannière */
 .banniere {
-  width: 100%;             /* Prend toute la largeur de son conteneur */
-  height: auto;            /* Hauteur auto pour maintenir les proportions */
-  object-fit: cover;       /* L'image couvre l'espace sans déformer */
-  border-radius: 10px;     /* Bords arrondis pour l'image */
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
-/* Styles du menu */
 nav {
   background-color: #343434;
   border-radius: 8px;
   margin: 20px 0;
+  width: 100%;
 }
 
-/* Style de la liste principale */
 nav ul {
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
   padding: 10px;
@@ -74,26 +66,27 @@ nav a {
   border-radius: 5px;
   background-color: #007BFF;
   transition: background-color 0.3s ease;
+  display: block;
 }
 
 nav a:hover {
   background-color: #0056b3;
 }
 
-/* Styles pour le sous-menu */
 .nav-item {
-  position: relative; /* Nécessaire pour positionner le sous-menu */
+  position: relative;
 }
 
 .sub-menu {
-  display: none; /* Cacher le sous-menu par défaut */
-  position: absolute; /* Le sous-menu s'affiche au-dessous du lien principal */
-  top: 100%; /* Le sous-menu apparaît juste sous le lien principal */
+  display: none;
+  position: absolute;
+  top: 100%;
   left: 0;
   background-color: #343434;
   list-style: none;
   padding: 10px;
   border-radius: 8px;
+  z-index: 1000;
 }
 
 .sub-menu li {
@@ -106,28 +99,24 @@ nav a:hover {
   display: block;
 }
 
-/* Affichage du sous-menu au survol */
 .nav-item:hover .sub-menu {
   display: block;
 }
 
-/* Section principale pour décrire le contenu */
 main {
   padding: 20px;
-  flex-grow: 1;              /* Permet au main de prendre toute la hauteur restante */
+  flex-grow: 1;
 }
 
-/* Footer : Style du pied de page */
 footer {
-  background-color: #f4f4f4; /* Fond clair pour le pied de page */
-  color: #333;               /* Texte sombre */
-  padding: 10px 0;           /* Espacement autour du texte */
-  margin-top: 20px;          /* Espacement avec le contenu au-dessus */
-  width: 100%;               /* Assurer que le footer prenne toute la largeur */
-  text-align: center;        /* Centrer le texte du footer */
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 10px 0;
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
 }
 
-/* Nouveau style pour l'annonce */
 .announcement {
   background-color: #f4f4f4;
   border-left: 5px solid #007BFF;
@@ -150,29 +139,48 @@ footer {
   font-weight: bold;
 }
 
-/* Effet au survol pour l'annonce */
 .announcement:hover {
   background-color: #e9f2fb;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* Responsive : Adaptation pour les écrans plus petits */
-@media screen and (max-width: 600px) {
-  h1 {
-    font-size: 1.8em;          /* Taille du titre plus petite */
-  }
-
-  .description p {
-    font-size: 1em;            /* Taille du texte réduite sur mobile */
-  }
-
+@media screen and (max-width: 768px) {
   nav ul {
-    flex-direction: column;    /* Empilement des liens dans la navigation */
-    gap: 10px;                 /* Espacement réduit entre les liens */
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
 
   nav a {
-    width: 100%;               /* Les liens prennent toute la largeur */
-    text-align: center;        /* Centrer le texte des liens */
+    width: 90%;
+    text-align: center;
+  }
+
+  .sub-menu {
+    position: static;
+    width: 90%;
+    margin-top: 10px;
+  }
+
+  .nav-item:hover .sub-menu {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  nav ul {
+    padding: 5px;
+  }
+
+  .announcement {
+    font-size: 1em;
   }
 }
