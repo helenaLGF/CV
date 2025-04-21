@@ -1,67 +1,100 @@
+/* =============================================================
+   Fichier responsive.css
+   Ce fichier gère les ajustements visuels pour les écrans < 768px
+   (principalement mobiles en mode portrait)
+   ============================================================= */
 
-/* =========================================
-   Responsive CSS pour mobile (max-width: 768px)
-   ========================================= */
+/* ✅ Affichage du menu burger uniquement sur mobile */
+.burger {
+  display: block;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+  cursor: pointer;
+}
 
-/* Cacher le menu principal en mobile, afficher le menu hamburger */
-@media screen and (max-width: 768px) {
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
 
-  /* On empile les éléments verticalement */
-  nav .nav-links {
-    display: none; /* Caché par défaut, sera montré quand hamburger actif */
-    flex-direction: column;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-  }
+/* ✅ Cacher le menu complet (ul) en version mobile */
+nav ul.nav-links {
+  display: none;
+  flex-direction: column;
+  background-color: white;
+  position: fixed;
+  top: 70px;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  gap: 0;
+  padding: 20px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 998;
+}
 
-  /* Chaque lien du menu prend toute la largeur */
-  nav .nav-links li {
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
-    border-top: 1px solid #ddd;
-  }
+/* ✅ Quand nav a la classe .nav-open on l'affiche */
+nav.nav-open ul.nav-links {
+  display: flex;
+}
 
-  nav .nav-links li:first-child {
-    border-top: none;
-  }
+/* ✅ Liens du menu mobile */
+nav.nav-open ul.nav-links li a {
+  padding: 15px;
+  display: block;
+  width: 100%;
+  color: #333;
+  background: none;
+  font-weight: bold;
+}
 
-  /* Bouton hamburger */
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-    padding: 10px;
-    margin-left: auto;
-  }
+/* ✅ Ajustement de la bannière pour les petits écrans */
+.banniere {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+}
 
-  .hamburger div {
-    width: 25px;
-    height: 3px;
-    background-color: #333;
-  }
+/* ✅ Réduction des titres */
+h1 {
+  font-size: 1.8em;
+}
 
-  .nav-open .nav-links {
-    display: flex !important;
-  }
+/* ✅ Ajustement pour l'annonce */
+.announcement {
+  font-size: 1em;
+  padding: 15px;
+  word-break: break-word; /* évite les mots collés ou les sauts laids */
+}
 
-  /* Ajustement du texte d’annonce pour éviter les coupures ou débordements */
-  .announcement p {
-    word-break: break-word;
-    white-space: normal;
-  }
+/* ✅ Empêcher les débordements horizontaux */
+body {
+  overflow-x: hidden;
+}
 
-  /* Centrage du texte du menu mobile */
-  nav a {
-    color: #333;
-    background: none;
-    padding: 10px;
-  }
+/* ✅ Supprimer les marges internes qui gênent */
+.container {
+  padding: 10px;
+  width: 100%;
+}
+
+/* ✅ Sous-menu (mobile) affiché toujours inline dans menu ouvert */
+nav.nav-open .sub-menu {
+  position: static;
+  display: block;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+nav.nav-open .sub-menu li a {
+  padding: 10px;
+  background: none;
+  color: #555;
 }
