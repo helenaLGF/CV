@@ -94,11 +94,14 @@ src
             <h4>💡 Exemple de scénario</h4>
             <pre><code>Feature: Recherche Google
 
-  Scenario: Recherche de "Cucumber" sur Google
+  Scenario: L'utilisateur effectue une recherche avec un terme contenant des caractères spéciaux
     Given je suis sur la page d'accueil de Google
-    When je recherche "Cucumber"
-    When j'accepte
-    Then je vois des résultats de recherche pour "Cucumber"
+    When je recherche "JavaScript: Le guide complet!"
+    And j'accepte
+    Then l'utilisateur voit les résultats suivants :
+      | JavaScript: Le guide complet - Hondermarck, Olivier - Livres |
+      | Apprenez à programmer avec JavaScript - OpenClassrooms       |
+
     </code></pre>
 
             <h4>🧬 Nettoyage automatique</h4>
@@ -147,11 +150,14 @@ src
             <h4>💡 Sample Scenario</h4>
             <pre><code>Feature: Google Search
 
-  Scenario: Search for "Cucumber" on Google
-    Given I am on the Google homepage
-    When I search for "Cucumber"
-    When I accept
-    Then I see search results for "Cucumber"
+  Scenario: L'utilisateur effectue une recherche avec un terme contenant des caractères spéciaux
+    Given je suis sur la page d'accueil de Google
+    When je recherche "JavaScript: Le guide complet!"
+    And j'accepte
+    Then l'utilisateur voit les résultats suivants :
+      | JavaScript: Le guide complet - Hondermarck, Olivier - Livres |
+      | Apprenez à programmer avec JavaScript - OpenClassrooms       |
+
     </code></pre>
 
             <h4>🧬 Automatic Cleanup</h4>
