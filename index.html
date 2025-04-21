@@ -6,20 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio QA - Helena Le Goff</title>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/responsive.css">
 </head>
 
 <body>
 <div class="container">
-
-  <!-- Header avec bannière et titre -->
+  <!-- Header -->
   <header>
     <img src="img/Lead_qa_automation.png" alt="Bannière QA" class="banniere">
     <h1>Portfolio QA - Helena Le Goff</h1>
     <p class="certification">Certifiée ISTQB (922200)</p>
   </header>
 
-  <!-- Menu responsive + desktop -->
+  <!-- Navigation -->
   <nav>
     <div class="nav-container">
       <button class="menu-toggle" aria-label="Menu">
@@ -31,7 +29,7 @@
         <li><a href="https://helenalgf.github.io/CV/">Home</a></li>
         <li><a href="https://helenalgf.github.io/CV/cv/Lead_QA_Automation.pdf" target="_blank">Mon CV</a></li>
         <li class="nav-item">
-          <a href="#projects">Projets</a>
+          <a href="#">Projets</a>
           <ul class="sub-menu">
             <li><a href="https://helenalgf.github.io/CV/pages/selenium_java_cucumber_testng_maven_projet.html">Java Selenium</a></li>
             <li><a href="#">(#TODO) Test d'API</a></li>
@@ -43,15 +41,10 @@
     </div>
   </nav>
 
-  <!-- Section principale -->
+  <!-- Contenu principal -->
   <main>
     <section>
-      <p>
-        Je suis actuellement <strong>Test Automation & QA Engineer / Lead QA</strong>, certifiée <strong>ISTQB® niveau Foundation</strong> et <strong>Agile Tester Extension</strong>. Mon expertise inclut le <em>test manuel</em>, l'<em>automatisation des tests</em> et les <em>tests d'API</em>, avec une forte maîtrise des technologies telles que <strong>Java</strong>, <strong>Selenium</strong>, <strong>Cucumber</strong>, <strong>TestNG</strong>, <strong>Gherkin</strong>, <strong>JUnit</strong>, <strong>Jenkins</strong>, <strong>GitLab</strong> et <strong>Postman</strong>.
-      </p>
-      <p>
-        En parallèle, je monte en compétences sur des technologies modernes telles que <strong>Playwright</strong>, <strong>Cypress</strong>, <strong>Python</strong>, <strong>Pytest</strong>, <strong>SoapUI</strong>, <strong>JavaScript</strong>, et <strong>GitHub Actions</strong>. Ces nouvelles compétences me permettent d'approfondir mes capacités en tests end-to-end et d'étendre mon expertise dans l'automatisation des tests et la gestion d'environnements de test. Les projets associés à cette montée en compétences seront également publiés prochainement.
-      </p>
+      <p>Je suis actuellement <strong>Test Automation & QA Engineer / Lead QA</strong> [...]</p>
     </section>
   </main>
 
@@ -62,20 +55,10 @@
   </footer>
 </div>
 
-<!-- Script pour animation du lien projet + menu burger -->
+<!-- Script menu burger -->
 <script>
-  const projectLink = document.getElementById('project-link');
-  const navTexts = ['Projets en cours', '🚧 En construction...'];
-  let currentTextIndex = 0;
-
-  setInterval(() => {
-    currentTextIndex = (currentTextIndex + 1) % navTexts.length;
-    projectLink.textContent = navTexts[currentTextIndex];
-  }, 3000);
-
   const menuToggle = document.querySelector('.menu-toggle');
   const navLinks = document.querySelector('.nav-links');
-
   menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
   });

@@ -1,4 +1,4 @@
-/* 🔄 Reset CSS pour harmoniser le rendu entre navigateurs */
+/* Base reset */
 * {
   margin: 0;
   padding: 0;
@@ -6,196 +6,160 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* 🧍 Corps principal de la page */
 body {
-  background-color: #ffffff; /* ✅ Couleur de fond blanche pour matcher la bannière */
-  color: #333;               /* ✅ Texte bien lisible */
-  line-height: 1.6;          /* ✅ Espacement confortable entre lignes */
+  background-color: #fff;
+  color: #333;
+  line-height: 1.6;
   font-size: 16px;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  text-align: center;
+  overflow-x: hidden;
 }
 
-/* 📦 Conteneur principal de contenu centré */
 .container {
   max-width: 900px;
   width: 100%;
   padding: 20px;
-  text-align: center;
 }
 
-/* 📘 Variante pour le contenu "README" : justifié et lisible */
-.container.read {
-  text-align: justify;
-  line-height: 1.8;
-}
-
-/* 🎀 En-tête avec bannière centrée */
 header {
-  margin-bottom: 20px;
   text-align: center;
+  margin-bottom: 20px;
 }
 
-/* 🖼️ Image de bannière stylisée */
 .banniere {
   width: 100%;
   height: auto;
   object-fit: cover;
-  border-radius: 10px; /* ✅ Bords arrondis pour un look moderne */
+  border-radius: 10px;
 }
 
-/* 🧭 Navigation (Menu principal) sans fond sombre */
 nav {
-  margin: 20px 0; /* ✅ Espacement vertical suffisant */
+  margin: 20px 0;
 }
 
-/* 🔗 Liste horizontale ou verticale des liens */
-nav ul {
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #ff7f2a;
+  transition: 0.3s;
+}
+
+.nav-links {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;         /* ✅ Permet le passage à la ligne sur petits écrans */
   justify-content: center;
-  gap: 10px;
-  padding: 0;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
-/* 🔘 Style des liens de menu principal */
-nav a {
-  color: #fff;
-  background-color: #ff7f2a;     /* ✅ Orange vif pour rappeler la bannière */
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 30px;           /* ✅ Look arrondi, doux, moderne */
-  transition: all 0.3s ease;
-  font-weight: bold;
-}
-
-nav a:hover {
-  background-color: #e76600;     /* ✅ Teinte plus sombre au survol */
-}
-
-/* 🔽 Élément parent des sous-menus */
-.nav-item {
+.nav-links li {
   position: relative;
 }
 
-/* 📂 Sous-menu caché par défaut */
+.nav-links a {
+  background-color: #ff7f2a;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: #e76600;
+}
+
 .sub-menu {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: white;
+  border: 1px solid #ccc;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  z-index: 99;
   min-width: 180px;
+  z-index: 1000;
 }
 
-/* 📄 Items dans le sous-menu */
-.sub-menu li {
-  padding: 8px 12px;
-}
-
-/* 🔗 Liens du sous-menu (différenciés du menu principal) */
 .sub-menu li a {
-  color: #333;
-  background: none;
-  padding: 8px 12px;
   display: block;
+  padding: 10px;
+  color: #333;
 }
 
-/* 👆 Affichage du sous-menu au survol */
 .nav-item:hover .sub-menu {
   display: block;
 }
 
-/* 🧾 Section principale */
-main {
-  padding: 20px;
-  flex-grow: 1;
-}
-
-/* 🦶 Pied de page simple, discret */
 footer {
-  background-color: #f9f9f9;
-  color: #333;
-  padding: 10px 0;
-  margin-top: 20px;
-  width: 100%;
   text-align: center;
-}
-
-/* 🔔 Bloc d'annonce important, mis en avant visuellement */
-.announcement {
-  background-color: #fff9f5;             /* ✅ Fond clair orangé, doux */
-  border-left: 5px solid #ff7f2a;        /* ✅ Liseré orange comme indicateur visuel */
-  padding: 20px;
-  margin: 30px 0;
-  font-size: 1.1em;
-  color: #333;
-  border-radius: 10px;
-  font-weight: bold;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.06);
-  word-wrap: break-word;                 /* ✅ Empêche les débordements en portrait */
-}
-
-.announcement p {
-  margin: 0;
+  margin-top: 30px;
+  background-color: #f4f4f4;
+  width: 100%;
   padding: 10px 0;
-  line-height: 1.5;
-  word-break: break-word;               /* ✅ Évite les longues chaînes non coupées */
 }
 
-.announcement span {
-  color: #ff7f2a;
-  font-weight: bold;
-}
-
-/* 🔁 Hover : animation légère pour retour visuel */
-.announcement:hover {
-  background-color: #fff3e9;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
-}
-
-/* 📱 Responsive : Mobile First ! */
-@media screen and (max-width: 600px) {
-  h1 {
-    font-size: 1.6em;                   /* ✅ Réduction du titre */
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+    align-self: flex-end;
   }
 
-  .description p {
-    font-size: 1em;
-  }
-
-  nav ul {
-    flex-direction: column;            /* ✅ Menu vertical sur mobile */
+  .nav-links {
+    display: none;
+    flex-direction: column;
     gap: 10px;
+    background-color: white;
+    padding: 20px;
+    margin-top: 10px;
+    width: 100%;
+    border-radius: 10px;
   }
 
-  nav a {
-    width: 100%;                       /* ✅ Pleine largeur */
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    background-color: #ff7f2a;
+    color: #fff;
+    width: 100%;
     text-align: center;
-    font-size: 1em;
   }
 
   .sub-menu {
-    position: static;                  /* ✅ Sous-menus intégrés verticalement */
-    border: none;
+    position: static;
+    display: none;
+    background-color: #fff;
     box-shadow: none;
+    border: none;
   }
 
-  .sub-menu li {
-    padding: 5px 0;
+  .nav-item:hover .sub-menu {
+    display: block;
+  }
+
+  h1 {
+    font-size: 1.5em;
   }
 
   .announcement {
     font-size: 1em;
     padding: 15px;
+    word-break: break-word;
   }
 }
