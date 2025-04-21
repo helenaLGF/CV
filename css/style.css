@@ -1,4 +1,10 @@
-/* Base reset */
+/* =============================================================
+   Fichier : style.css
+   Auteur : Helena Le Goff
+   Objectif : Mise en forme harmonieuse et responsive du portfolio QA
+   ============================================================= */
+
+/* ========== 🔁 RESET DE BASE ========== */
 * {
   margin: 0;
   padding: 0;
@@ -18,6 +24,7 @@ body {
   overflow-x: hidden;
 }
 
+/* ========== 📦 STRUCTURE GÉNÉRALE ========== */
 .container {
   max-width: 900px;
   width: 100%;
@@ -36,6 +43,7 @@ header {
   border-radius: 10px;
 }
 
+/* ========== 🧭 NAVIGATION ========== */
 nav {
   margin: 20px 0;
 }
@@ -82,28 +90,45 @@ nav {
   background-color: #e76600;
 }
 
+/* ===== 📂 SOUS-MENU (desktop) ===== */
 .sub-menu {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  min-width: 180px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  padding: 10px 0;
   z-index: 1000;
+  text-align: center;
+  list-style: none;
+}
+
+.sub-menu li {
+  padding: 5px 0;
 }
 
 .sub-menu li a {
   display: block;
-  padding: 10px;
+  padding: 10px 20px;
   color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+}
+
+.sub-menu li a:hover {
+  background-color: #f2f2f2;
 }
 
 .nav-item:hover .sub-menu {
   display: block;
 }
 
+/* ========== 🦶 FOOTER ========== */
 footer {
   text-align: center;
   margin-top: 30px;
@@ -112,7 +137,7 @@ footer {
   padding: 10px 0;
 }
 
-/* RESPONSIVE */
+/* ========== 📱 RESPONSIVE DESIGN ========== */
 @media screen and (max-width: 768px) {
   .menu-toggle {
     display: flex;
@@ -156,17 +181,19 @@ footer {
   h1 {
     font-size: 1.5em;
   }
+}
 
+/* ========== 🔔 BLOC D'ANNONCE ========== */
 .announcement {
-  background-color: #fff8f2;               /* Fond doux, dans les tons orangés */
-  border-left: 6px solid #ff7f2a;          /* Liseré orange à gauche */
+  background-color: #fff8f2;
+  border-left: 6px solid #ff7f2a;
   padding: 20px;
   margin: 30px 0;
   font-size: 1.1em;
-  color: #333;                             /* Texte lisible */
+  color: #333;
   border-radius: 10px;
   font-weight: bold;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Ombre subtile pour relief */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   word-wrap: break-word;
   transition: all 0.3s ease-in-out;
 }
@@ -179,13 +206,11 @@ footer {
 }
 
 .announcement span {
-  color: #ff7f2a;           /* Accent sur les mots clés */
+  color: #ff7f2a;
   font-weight: bold;
 }
 
 .announcement:hover {
-  background-color: #fff3e9; /* Effet au survol pour renforcer le look */
+  background-color: #fff3e9;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
 }
-
-
