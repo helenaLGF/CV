@@ -197,6 +197,45 @@ src
       | Apprenez à programmer avec JavaScript - OpenClassrooms       |
 
     </code></pre>
+            <h4>💡 Implementing a Cucumber Step</h4>
+            <pre><code>
+@Then("the user sees the following results:")
+public void user_sees_the_following_results(io.cucumber.datatable.DataTable dataTable) {
+    // ⏳ Explicit wait until the results section is visible
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    wait.until(ExpectedConditions.visibilityOf(GooglePage.firstResultTitle.getElement()));
+
+    // 🔍 Retrieve all visible result blocks
+    List&lt;WebElement&gt; results = driver.findElements(By.xpath("//*[@id=\"main\"]//h3/div"));
+
+    // 🔡 Clean up the text for softer comparison
+    List&lt;String&gt; texts = results.stream()
+        .map(e -> e.getText().trim().toLowerCase())
+        .toList();
+
+    // 🖨️ Debug log: print all found results
+    System.out.println("\n📋 [DEBUG] Results found by Selenium:");
+    texts.forEach(t -> System.out.println("🔹 " + t.replace("\n", " | ")));
+
+    // 📌 Expected results from the DataTable in the .feature file
+    List&lt;String&gt; expected = dataTable.asList();
+
+    // 🔁 Check that each expected item is present in the actual results
+    for (String exp : expected) {
+        boolean found = texts.stream().anyMatch(t -> t.contains(exp.toLowerCase()));
+
+        // 🎯 Validation log for each expected result
+        if (found) {
+            System.out.println("✅ Match found for: '" + exp + "'");
+        } else {
+            System.out.println("❌ No result contains: '" + exp + "'");
+        }
+
+        // 🧨 Fail the test if any expected result is missing
+        assertTrue("No result contains: '" + exp + "'", found);
+    }
+}
+</code></pre>
 
             <h4>🧬 Automatic Cleanup</h4>
             <p>The <code>target/</code> folder is automatically cleaned using <code>maven-clean-plugin</code>.</p>
