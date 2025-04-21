@@ -63,7 +63,6 @@
                 <li>⚙️ Selenium WebDriver (Chrome)</li>
                 <li>🥒 Cucumber (BDD)</li>
                 <li>✅ TestNG (runner)</li>
-                <li>🌐 WebDriverManager (gestion automatique des drivers)</li>
                 <li>🔎 Exemple de test : recherche Google</li>
                 <li>📦 Maven (<code>clean</code>, <code>verify</code>, <code>install</code>)</li>
             </ul>
@@ -91,7 +90,7 @@ src
             <h4>▶️ Lancer les tests</h4>
             <pre><code>mvn clean verify</code></pre>
 
-            <h4>💡 Exemple de scénario</h4>
+            <h4>💡 Exemple de scénario en gherkin</h4>
             <pre><code>Feature: Recherche Google
 
   Scenario: L'utilisateur effectue une recherche avec un terme contenant des caractères spéciaux
@@ -104,6 +103,46 @@ src
 
     </code></pre>
 
+            <h4>💡 Exemple de step en cucumber</h4>
+            <pre><code>
+            @Then("l'utilisateur voit les résultats suivants :")
+            public void l_utilisateur_voit_les_resultats_suivants(io.cucumber.datatable.DataTable dataTable) {
+            // ⏳ Attente explicite jusqu’à ce que la zone des résultats s'affiche
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.visibilityOf(GooglePage.firstResultTitle.getElement()));
+
+            // 🔍 Récupération de tous les blocs de résultats visibles
+            List<WebElement> resultats = driver.findElements(By.xpath("//*[@id=\"main\"]//h3/div"));
+
+            // 🔡 On nettoie les textes des résultats pour une comparaison plus douce
+            List<String> textes = resultats.stream()
+                .map(e -> e.getText().trim().toLowerCase())
+                .toList();
+
+                // 🖨️ Log pour debug : affiche tous les résultats trouvés
+                System.out.println("\n📋 [DEBUG] Résultats trouvés par Selenium :");
+                textes.forEach(t -> System.out.println("🔹 " + t.replace("\n", " | ")));
+
+                // 📌 Liste des résultats attendus (issus du DataTable dans le fichier .feature)
+                List<String> attendus = dataTable.asList();
+
+                    // 🔁 Vérifie que chaque élément attendu est présent dans les résultats réels
+                    for (String attendu : attendus) {
+                    boolean trouve = textes.stream().anyMatch(t -> t.contains(attendu.toLowerCase()));
+
+                    // 🎯 Log de validation pour chaque résultat attendu
+                    if (trouve) {
+                    System.out.println("✅ Résultat trouvé pour : '" + attendu + "'");
+                    } else {
+                    System.out.println("❌ Aucun résultat ne contient : '" + attendu + "'");
+                    }
+
+                    // 🧨 Fait échouer le test si un attendu est absent
+                    assertTrue("Aucun résultat ne contient : '" + attendu + "'", trouve);
+                    }
+                    }
+            </code></pre>
+            </br>
             <h4>🧬 Nettoyage automatique</h4>
             <p>Le dossier <code>target/</code> est automatiquement vidé grâce au plugin <code>maven-clean-plugin</code>.</p>
 
@@ -119,7 +158,6 @@ src
                 <li>⚙️ Selenium WebDriver (Chrome)</li>
                 <li>🥒 Cucumber (BDD)</li>
                 <li>✅ TestNG (test runner)</li>
-                <li>🌐 WebDriverManager (auto-manages driver versions)</li>
                 <li>🔎 Example test: Google search automation</li>
                 <li>📦 Maven (<code>clean</code>, <code>verify</code>, <code>install</code>)</li>
             </ul>
