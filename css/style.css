@@ -157,9 +157,35 @@ footer {
     font-size: 1.5em;
   }
 
-  .announcement {
-    font-size: 1em;
-    padding: 15px;
-    word-break: break-word;
-  }
+.announcement {
+  background-color: #fff8f2;               /* Fond doux, dans les tons orangés */
+  border-left: 6px solid #ff7f2a;          /* Liseré orange à gauche */
+  padding: 20px;
+  margin: 30px 0;
+  font-size: 1.1em;
+  color: #333;                             /* Texte lisible */
+  border-radius: 10px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Ombre subtile pour relief */
+  word-wrap: break-word;
+  transition: all 0.3s ease-in-out;
 }
+
+.announcement p {
+  margin: 0;
+  padding: 10px 0;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+.announcement span {
+  color: #ff7f2a;           /* Accent sur les mots clés */
+  font-weight: bold;
+}
+
+.announcement:hover {
+  background-color: #fff3e9; /* Effet au survol pour renforcer le look */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
+}
+
+
