@@ -1,4 +1,4 @@
-const CACHE_NAME = "testonaut-portfolio-v1";
+const CACHE_NAME = "testonaut-portfolio-v2";
 const urlsToCache = [
   '/',
   '/index.html',
@@ -7,24 +7,26 @@ const urlsToCache = [
   '/img/Lead_qa_automation.png',
   '/icons/icon-192.png',
   '/icons/icon-512.png',
-  '/manifest.json'
+  '/manifest.json',
+  '/offline.html',
+  '/pages/selenium_java_cucumber_testng_maven_projet.html'
 ];
 
-// Installation du Service Worker
+// Installation - on précache tout
 self.addEventListener('install', event => {
-  console.log('🚀 Service Worker en cours d\'installation...');
+  console.log('🚀 Service Worker install...');
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
-        console.log('📦 Mise en cache des ressources');
+        console.log('📦 Mise en cache initiale...');
         return cache.addAll(urlsToCache);
       })
   );
 });
 
-// Activation et nettoyage des anciens caches
+// Activation - on nettoie les anciens caches
 self.addEventListener('activate', event => {
-  console.log('🧹 Nettoyage des anciens caches...');
+  console.log('🧹 Service Worker activate...');
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
@@ -35,19 +37,46 @@ self.addEventListener('activate', event => {
   );
 });
 
-// Interception des requêtes réseau
+// Fetch intelligent
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // Si on a la ressource en cache, on la sert
-        if (response) {
-          console.log('🔄 Ressource servie depuis le cache:', event.request.url);
+  const { request } = event;
+  const url = new URL(request.url);
+
+  // Pour les pages HTML : Network First
+  if (request.headers.get('accept')?.includes('text/html')) {
+    event.respondWith(
+      fetch(request)
+        .then(response => {
+          // On met à jour le cache dynamiquement
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(request, clone));
           return response;
-        }
-        // Sinon, on fait une requête réseau normale
-        console.log('🌐 Requête réseau pour:', event.request.url);
-        return fetch(event.request);
-      })
+        })
+        .catch(() => {
+          return caches.match(request).then(response => response || caches.match('/offline.html'));
+        })
+    );
+    return;
+  }
+
+  // Pour les ressources statiques : Cache First
+  if (request.destination === 'style' ||
+      request.destination === 'script' ||
+      request.destination === 'image') {
+    event.respondWith(
+      caches.match(request)
+        .then(response => response || fetch(request)
+          .then(response => {
+            const clone = response.clone();
+            caches.open(CACHE_NAME).then(cache => cache.put(request, clone));
+            return response;
+          }))
+    );
+    return;
+  }
+
+  // Par défaut
+  event.respondWith(
+    fetch(request).catch(() => caches.match('/offline.html'))
   );
 });
