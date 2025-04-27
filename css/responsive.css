@@ -95,3 +95,22 @@ footer {
   font-size: 0.9em;
   padding: 10px 5px;
 }
+
+
+.install-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+.install-button:hover {
+  background-color: #cc5200;
+}

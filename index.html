@@ -4,6 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ff6600"> <!-- couleur de ta barre mobile -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
   <link rel="manifest" href="/manifest.json">
 
   <title>Portfolio QA - Helena Le Goff</title>
@@ -19,6 +23,8 @@
 <div class="container">
   <!-- Header -->
   <header>
+<p><img src="https://img.shields.io/badge/PWA-Ready-brightgreen?style=flat-square&logo=pwa" alt="PWA Ready"></p>
+
     <img src="img/Lead_qa_automation.png" alt="Bannière QA" class="banniere">
     <h1>Portfolio QA - Helena Le Goff</h1>
     <p class="certification">Certifiée ISTQB (922200)</p>
@@ -81,6 +87,47 @@
     navLinks.classList.toggle('active');
   });
 </script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(function(registration) {
+        console.log('✅ ServiceWorker enregistré avec succès :', registration.scope);
+      })
+      .catch(function(error) {
+        console.log('❌ Échec ServiceWorker :', error);
+      });
+  }
+</script>
+
+<script>
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    // Empêche Chrome de montrer automatiquement la bannière
+    e.preventDefault();
+    deferredPrompt = e;
+
+    // Maintenant, tu peux créer un bouton "Installer" personnalisé :
+    const installBtn = document.createElement('button');
+    installBtn.innerText = "📲 Installer l'application";
+    installBtn.classList.add("install-button");
+    document.body.appendChild(installBtn);
+
+    installBtn.addEventListener('click', (e) => {
+      installBtn.style.display = 'none';
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('✅ Installation acceptée');
+        } else {
+          console.log('❌ Installation refusée');
+        }
+        deferredPrompt = null;
+      });
+    });
+  });
+</script>
+
+
 </body>
 
 </html>
