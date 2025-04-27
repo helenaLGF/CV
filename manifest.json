@@ -1,0 +1,25 @@
+{
+  "name": "Portfolio QA - Helena Le Goff",
+  "short_name": "Helena QA",
+  "start_url": "/CV/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ff6600",
+  "description": "Portfolio QA Automation & Test de Helena Le Goff.",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "lang": "fr-FR",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "id": "/manifest.json"
+}
