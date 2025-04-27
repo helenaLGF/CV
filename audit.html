@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Audit Multi-Pages Portfolio QA</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #ff6600;
+      color: white;
+    }
+    .good { color: green; }
+    .average { color: orange; }
+    .bad { color: red; }
+  </style>
+</head>
+<body>
+
+<h1>Audit Automatique de Tout le Portfolio 🚀</h1>
+<button id="startAudit">Lancer l'audit de toutes les pages</button>
+
+<table id="resultTable" style="display:none;">
+  <thead>
+    <tr>
+      <th>Page</th>
+      <th>Performance</th>
+      <th>SEO</th>
+      <th>Best Practices</th>
+      <th>Accessibilité</th>
+      <th>PWA</th>
+    </tr>
+  </thead>
+  <tbody id="resultsBody">
+  </tbody>
+</table>
+
+<script>
+const pages = [
+  'https://helenalgf.github.io/CV/',
+  'https://helenalgf.github.io/CV/pages/selenium_java_cucumber_testng_maven_projet.html'
+];
+
+document.getElementById('startAudit').addEventListener('click', async () => {
+  document.getElementById('resultTable').style.display = 'table';
+  const tbody = document.getElementById('resultsBody');
+  tbody.innerHTML = '';
+
+  for (const pageUrl of pages) {
+    const apiUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(pageUrl)}&strategy=mobile`;
+    
+    const row = document.createElement('tr');
+    const pageCell = document.createElement('td');
+    pageCell.innerText = pageUrl;
+    row.appendChild(pageCell);
+
+    try {
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+
+      const scores = data.lighthouseResult.categories;
+      ['performance', 'seo', 'best-practices', 'accessibility', 'pwa'].forEach(metric => {
+        const cell = document.createElement('td');
+        const score = Math.round(scores[metric].score * 100);
+
+        cell.innerText = score;
+        cell.className = score >= 90 ? 'good' : score >= 50 ? 'average' : 'bad';
+        row.appendChild(cell);
+      });
+
+    } catch (error) {
+      console.error(`Erreur pour ${pageUrl}`, error);
+      ['performance', 'seo', 'best-practices', 'accessibility', 'pwa'].forEach(() => {
+        const cell = document.createElement('td');
+        cell.innerText = 'Erreur';
+        cell.className = 'bad';
+        row.appendChild(cell);
+      });
+    }
+
+    tbody.appendChild(row);
+  }
+});
+</script>
+
+</body>
+</html>
